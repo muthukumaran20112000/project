@@ -1,0 +1,97 @@
+<div class="title"><h1>{{title}}</h1></div>
+  <form [formGroup]="signupForm" (ngSubmit)="saveUser()" class="add">
+    <mat-form-field style="width: 700px;">
+      <mat-label>First Name</mat-label>
+      <input matInput type="text" formControlName="firstname">
+    </mat-form-field>
+    <mat-form-field style="width: 700px;">
+      <mat-label>Last Name</mat-label>
+      <input matInput type="text" formControlName="lastname">
+    </mat-form-field>
+    <mat-form-field style="width: 700px;">
+      <mat-label>Address</mat-label>
+      <input matInput type="text" formControlName="address">
+    </mat-form-field>
+    <mat-form-field style="width: 700px;">
+      <mat-label>Department</mat-label>
+      <input matInput type="text" formControlName="address">
+    </mat-form-field>
+ <mat-form-field floatLabel="always" style="width: 700px;" >
+    <mat-label>User Name</mat-label>
+    <input matInput formControlName="username" required autocomplete="off">
+    <mat-error
+      *ngIf="signupForm.get('username').invalid && (signupForm.get('username').dirty || signupForm.get('username').touched)">
+      <span *ngIf="signupForm.get('username').hasError('required')">User Name is required</span>
+    </mat-error>
+  </mat-form-field><br>
+  <mat-form-field floatLabel="always" style="width: 700px;">
+    <mat-label>User Email</mat-label>
+    <input matInput type="email" formControlName="email" required autocomplete="off">
+    <mat-error
+      *ngIf="signupForm.get('email').invalid && (signupForm.get('email').dirty || signupForm.get('email').touched)">
+      <span *ngIf="signupForm.get('email').hasError('required')">User Email is required</span>
+      <span *ngIf="signupForm.get('email').hasError('email')">Invalid email format</span>
+    </mat-error>
+  </mat-form-field><br>
+
+  <mat-form-field floatLabel="always" style="width: 700px;">
+    <mat-label>Phone No</mat-label>
+    <input matInput formControlName="phone" required autocomplete="off">
+    <mat-error
+      *ngIf="signupForm.get('phone').invalid && (signupForm.get('phone').dirty || signupForm.get('phone').touched)">
+      <span *ngIf="signupForm.get('phone').hasError('required')">Phone No is required</span>
+      <span *ngIf="signupForm.get('phone').hasError('pattern')">Only numbers are allowed</span>
+    </mat-error>
+  </mat-form-field><br>
+  <mat-form-field *ngIf ='showOld' floatLabel="always" style="width: 700px;">
+    <mat-label *ngIf ='showOld'>Old Password</mat-label>
+    <input *ngIf='showOld' matInput type="password" formControlName="oldPassword" autocomplete="off">
+    <mat-error
+      *ngIf="signupForm.get('oldPassword').invalid && (signupForm.get('oldPassword').dirty || signupForm.get('oldPassword').touched)">
+      <span *ngIf="signupForm.get('oldPassword').hasError('required')">Password is required</span>
+      <span *ngIf="signupForm.get('oldPassword').hasError('pattern')">Password must include alphanumeric characters and
+        special characters, and have a minimum length of 15</span>
+    </mat-error>
+  </mat-form-field><br>
+
+  <mat-form-field floatLabel="always" style="width: 700px;">
+    <mat-label>Password</mat-label>
+    <input matInput type="password" formControlName="password" required autocomplete="off">
+    <mat-error
+      *ngIf="signupForm.get('password').invalid && (signupForm.get('password').dirty || signupForm.get('password').touched)">
+      <span *ngIf="signupForm.get('password').hasError('required')">Password is required</span>
+      <span *ngIf="signupForm.get('password').hasError('pattern')">Password must include alphanumeric characters and
+        special characters, and have a minimum length of 15</span>
+    </mat-error>
+  </mat-form-field><br>
+
+  <mat-form-field floatLabel="always" style="width: 700px;">
+    <mat-label>Confirm Password</mat-label>
+    <input matInput type="password" formControlName="confirmPassword" required autocomplete="off">
+    <mat-error
+      *ngIf="signupForm.get('confirmPassword').invalid && (signupForm.get('confirmPassword').dirty || signupForm.get('confirmPassword').touched)">
+     <div class="cp">
+      <span *ngIf="signupForm.get('confirmPassword').hasError('required')">* Confirm Password is required</span><br>
+      <span *ngIf="signupForm.get('confirmPassword').hasError('pattern')">* Password must include alphanumeric
+        characters and special characters, and have a minimum length of 15</span><br>
+      <span *ngIf="signupForm.get('confirmPassword').hasError('validateEqual')">* Passwords do not match</span>
+     </div>
+    </mat-error>
+  </mat-form-field><br>
+
+  <mat-form-field floatLabel="always" style="width: 700px;">
+    <mat-label>Password Hint</mat-label>
+    <input matInput formControlName="passwordHint" autocomplete="off">
+  </mat-form-field><br>
+  <div mat-dialog-actions class="btn">
+    <button mat-button (click)="closeDialog()">Cancel</button>
+    <button mat-raised-button color="primary" (click)='saveUser()' type="submit" [disabled]="signupForm.invalid">{{title}}</button>
+  </div> 
+
+</form>
+<mat-progress-bar mode="determinate" value=" {{progress()}} "></mat-progress-bar>
+
+
+
+
+

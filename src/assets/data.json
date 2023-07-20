@@ -1,0 +1,46 @@
+[{  
+
+    "firstname":"muthu",
+    "lastname":"kumar",
+    "address":"chennai",
+    "department":"ci",
+    "username":"muthu23",
+    "email":"muthu@abc" ,
+    "phone": 123456,
+     "password":"Back@1234567890",
+    "passwordHint": "muthu"
+},
+{   
+    "firstname":"pearl",
+    "lastname":"joel",
+    "address":"tuti",
+    "department":"it",
+    "username":"pearl12",
+    "email":"pearl@com" ,
+    "phone": 55555,
+    "password":"ppc",
+    "passwordHint": "pearl"
+},
+{
+    "firstname":"bharath",
+    "lastname":"raj",
+    "address":"salem",
+    "department":"automation",
+    "username":"bharath678",
+    "email":"bharath@c" ,
+    "phone": 666666,
+    "password":"bhc",
+    "passwordHint": "tiger"
+},
+{   
+    "firstname":"ajis",
+    "lastname":"khan",
+    "address":"chennai",
+    "department":"qa",
+    "username":"ajis555",
+    "email":"ajis@a" ,
+    "phone": 868686,
+    "password":"aca",
+    "passwordHint": "ajis"
+}
+]
